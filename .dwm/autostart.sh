@@ -1,13 +1,14 @@
 #!/bin/sh
 
-picom --config ~/.dwm/picom/picom.conf &
+picom &
 # redshift -P -O 4500
 dunst &
 # brightnessctl set 75
-nm-applet &
 
+# set background
 ~/.fehbg
-~/.dwm/polybar/launch.sh &
+# launch installed bar
+~/.dwm/launchbar.sh &
 
-sxhkd -c ~/.dwm/sxhkd/sxhkdrc &
+sxhkd -c ~/.config/sxhkd/sxhkdrc &
 dwm
