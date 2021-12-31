@@ -1,0 +1,10 @@
+static const char black[]           = "#1e222a";
+static const char white[]           = "#eeeeee"; // selected font color
+static const char gray1[]           = "#2e323a"; // unfocused window border
+static const char gray2[]           = "#5a5e66"; // focused window border & tag color
+static const char blue[]            = "#81a1c1";//"#61afef";
+static const char green[]           = "#a3be8c";//"#7EC7A2";
+static const char red[]             = "#bf616a"; // "#d0312d";
+static const char orange[]          = "#d08770";//"#caaa6a";
+static const char yellow[]          = "#ebcb8b";
+static const char pink[]            = "#c678dd";
