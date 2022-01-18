@@ -34,12 +34,13 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-    { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-    { "firefox", NULL,     NULL,           1 << 4,    0,          0,          -1,        -1 },
-    { "URxvt",   NULL,     NULL,           0,         0,          1,           0,        -1 },
-    { "discord", NULL,     NULL,           1 << 3,    0,          0,           0         -1 },
-    { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+    /* class     instance  title           tags mask  iscentered  isfloating  isterminal   noswallow  monitor */
+    { "Gimp",    NULL,     NULL,           0,         0,          1,          0,           0,        -1 },
+    { "firefox", NULL,     NULL,           1 << 4,    0,          0,          0,          -1,        -1 },
+    { "URxvt",   NULL,     NULL,           0,         1,          0,          1,           0,        -1 },
+    { "discord", NULL,     NULL,           1 << 3,    0,          0,          0,           0         -1 },
+    { "Pcmanfm", NULL,     NULL,           0,         1,          1,          0,           0,        -1 },
+    { NULL,      NULL,     "Event Tester", 0,         0,          0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -85,6 +86,7 @@ static Key keys[] = {
     { MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
 
     { MODKEY,                       XK_t,      togglebar,      {0} },
+    { MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -97,7 +99,7 @@ static Key keys[] = {
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 
-    { MODKEY,                       XK_Return, zoom,           {0} },
+    { MODKEY,                       XK_z,      zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
 
     { MODKEY,             			XK_q,      killclient,     {0} },
@@ -119,9 +121,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Left,  tagmon,          {.i = -1 } },
     { MODKEY|ShiftMask,             XK_Right, tagmon,          {.i = +1 } },
 
-    { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+    { MODKEY,                       XK_minus,  setgaps,        {.i = -1 }    },
+    { MODKEY,                       XK_plus,   setgaps,        {.i = +1 }    },
+    { MODKEY,                       XK_apostrophe,  setgaps,   {.i = gappx } },
 
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
